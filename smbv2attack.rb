@@ -62,4 +62,4 @@ end
 arg = arguments
 check_smbclient
 create_lists(arg)
-smb2_attack
+smb2_attack(arg)
