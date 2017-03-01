@@ -6,14 +6,14 @@ require 'logger'
 require 'colorize'
 require 'trollop'
 
-def arg
+def arguments
   opts = Trollop::options do 
     version "smbv2attack 0.1b".light_blue
       opt :hosts, "Choose hosts to enumerate", :type => String
       opt :user, "Username", :type => String
       opt :users, "Username List", :type => String
       opt :passwords, "Password list", :type => String
-      opt :domain, "Domain to attack, default 'WORKGROUP'", :type => String, :default => "WORKGROUP"
+      opt :domain, "Domain to attack", :type => String, :default => "WORKGROUP"
 
       if ARGV.empty?
         puts "Need Help? Try ./smbv2attack.rb --help or -h"
@@ -45,10 +45,10 @@ def create_hosts(arg)
 end
 
 def smb2_attack
-  out, err = @cmd.run!("enum4linux -u #{splitter[0]} -p #{splitter[1]} -S #{host}", timeout: 0.5)
+  out, err = @cmd.run!("@smbclient -u ", timeout: 0.5)
 end
 
-arg
-check_smbclient
+arg = arguments
+# check_smbclient
 create_hosts(arg)
-smb2_attack
+# smb2_attack
