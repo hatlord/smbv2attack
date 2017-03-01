@@ -39,9 +39,13 @@ def install_smbclient
   @smbclient = TTY::Which.which('smbclient.py')
 end
 
-def create_hosts(arg)
+def create_lists(arg)
   @hosts = File.readlines(arg[:hosts]).map(&:chomp &&:strip)
+  @users = File.readlines(arg[:users]).map(&:chomp &&:strip)
+  @pass  = File.readlines(arg[:passwords]).map(&:chomp &&:strip)
   puts @hosts
+  puts @users
+  puts @pass
 end
 
 def smb2_attack
@@ -50,5 +54,5 @@ end
 
 arg = arguments
 # check_smbclient
-create_hosts(arg)
+create_lists(arg)
 # smb2_attack
