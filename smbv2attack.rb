@@ -68,7 +68,6 @@ def command
 end
 
 def smb2_attack(arg)
-  lock_count = 0 #will iterate this each time an account is locked and kill the process when we hit 3
   puts "Attack Started #{Time.now.strftime("%H:%M:%S")}".light_blue
   @hosts.each do |host|
     @users.each do |user|
