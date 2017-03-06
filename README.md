@@ -1,5 +1,5 @@
-## smbv2attack is a tool for performing password attacks against SMBv2/3. It is intended to be a stop-gap until the bigger tools (Hydra/Medusa/Metasploit) publish an SMBv2+ compatible too.
-
+## smbv2attack is a tool for performing password attacks against SMBv2/3. 
+It is intended to be a stop-gap until the bigger tools (Hydra/Medusa/Metasploit) publish an SMBv2+ compatible too.
 You will need Ruby and a couple of gems, which can be installed with 'bundle install' from within the tools directory.
 
 Usage is straight forward:
