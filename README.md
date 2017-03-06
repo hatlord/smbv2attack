@@ -4,7 +4,7 @@ You will need Ruby and a couple of gems, which can be installed with 'bundle ins
 
 Usage is straight forward:
 
-_./smbv2attack.rb --help  
+./smbv2attack.rb --help  
 smbv2attack 0.1b  
 Options:  
   -H, --hosts=<s>        Choose hosts to attack  
@@ -15,7 +15,7 @@ Options:
   -p, --password=<s>     Password list  
   -d, --domain=<s>       Domain to attack (default: WORKGROUP)  
   -v, --version          Print version and exit  
-  -e, --help             Show this message_
+  -e, --help             Show this message
   
   Attacking a single host:
   ./smbv2attack.rb --host 10.10.10.1 --user administrator --password Password1 --domain TEST.CORP
@@ -26,5 +26,3 @@ Options:
 I may not have caught all of the SMB feedback messages, but any that aren't understood are still output to screen for you to parse. Any successful username and password pairs are written to a file.
 
 Account lockouts are RED in the console.
-
-
