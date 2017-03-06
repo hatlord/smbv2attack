@@ -7,13 +7,13 @@ Usage is straight forward:
 ./smbv2attack.rb --help  
 smbv2attack 0.1b  
 Options:  
-  -H, --hosts=<s>        Choose hosts to attack  
-  -h, --host=<s>         Choose host to attack  
-  -u, --user=<s>         Username  
-  -U, --users=<s>        Username List  
-  -P, --passwords=<s>    Password list  
-  -p, --password=<s>     Password list  
-  -d, --domain=<s>       Domain to attack (default: WORKGROUP)  
+  -H, --hosts=\<s>        Choose hosts to attack  
+  -h, --host=\<s>         Choose host to attack  
+  -u, --user=\<s>         Username  
+  -U, --users=\<s>        Username List  
+  -P, --passwords=\<s>    Password list  
+  -p, --password=\<s>     Password list  
+  -d, --domain=\<s>       Domain to attack (default: WORKGROUP)  
   -v, --version          Print version and exit  
   -e, --help             Show this message
   
