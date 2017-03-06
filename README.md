@@ -18,10 +18,10 @@ Options:
   -e, --help             Show this message
   
   Attacking a single host:
-  ./smbv2attack.rb --host 10.10.10.1 --user administrator --password Password1 --domain TEST.CORP
+  > ./smbv2attack.rb --host 10.10.10.1 --user administrator --password Password1 --domain TEST.CORP
   
   Attacking multiple hosts:
-  ./smbv2attack.rb --hosts hosts.txt --users users.txt --passwords passwords.txt
+  > ./smbv2attack.rb --hosts hosts.txt --users users.txt --passwords passwords.txt
 
 I may not have caught all of the SMB feedback messages, but any that aren't understood are still output to screen for you to parse. Any successful username and password pairs are written to a file.
 
