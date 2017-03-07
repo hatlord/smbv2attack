@@ -26,4 +26,4 @@ Options:
 I may not have caught all of the SMB feedback messages, but any that aren't understood are still output to screen for you to parse. Any successful username and password pairs are written to a file.
 
 Account lockouts are RED in the console.
-Please note that specifying a domain against a domain control won't change anything, the domain users will always be attacked. This setting is targeted at workstations, so that you don't lock out domain accounts.
+Please note that specifying a domain against a domain controller won't change anything, the domain users will always be attacked. This setting is targeted at workstations, so that you don't lock out domain accounts when performing local user attacks.
